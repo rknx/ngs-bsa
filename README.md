@@ -1,15 +1,14 @@
 # ngs-bsa
 Pipeline for the Next Gen Sequencing Bulked Sequence Analysis pipeline
 
-
-Instructions:
+### Instructions:
 - Install the following programs: Java, Samtools, BWA, SnpEff, GATK and R.
 - Install following packages in R: ggplot2, ggrepel, reshape2.
 - Place fastq files (fastq.gz, fastq, fq.gz or fq) from both pools in root folder.
 - Run script with appropriate parameters.
 - If using SLURM, fill in the variables in batch file and run this script from batch file (see example batch file).
 
-Usage:
+### Usage:
 ```
 NGS_BSA.sh [-h <help>] -g gene -s species [-o output folder] -t resistance type -b {bulk codes} {[-l lane names]} [-r reference folder] -v reference line [-f reference genome link] [-a annotation link] [-e snpEff config folder] [-k known snps link] [-c cut-off threshold] [-w smoothing span] [-i iteration] [-x steps to skip] [-d steps to redo] [-n <nolabel>] [-p path to script folder]
 
@@ -37,5 +36,8 @@ where:
         -p        Path to script folder  
   ```
   
-  Example:  
-          see the batch file.
+### Example:  
+          See the example batch file.
+          
+### Citation:  
+          Under review. To be listed soon.
