@@ -94,4 +94,3 @@ tail -n +$header $filename | parallel --will-cite findsite ###
 sort -k2 -n $gene.markers.txt > $gene.markers.sort.txt
 
 [[ ! -z TMPDIR ]] && rm -rf $TMPDIR
-# sbatch --wrap "/blue/jones/anujsharma/scripts/markers_wip gene.seg_SNPs.txt gene chr:start-end" --account "plantpath" --qos "plantpath" --time "01:00:00" --job-name "gene.marker" --mail-user "anujsharma@ufl.edu" --ntasks 1 --cpus-per-task 2 --mem 8g #Don't forget to change refline
