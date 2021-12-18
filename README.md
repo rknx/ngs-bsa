@@ -7,7 +7,7 @@ Instructions:
 - Install following packages in R: ggplot2, ggrepel, reshape2.
 - Place fastq files (fastq.gz, fastq, fq.gz or fq) from both pools in root folder.
 - Run script with appropriate parameters.
-- If using SLURM, fill in the variables in batch file and run this script from batch file.
+- If using SLURM, fill in the variables in batch file and run this script from batch file (see example batch file).
 
 Usage:
 ```
