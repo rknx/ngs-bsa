@@ -1,0 +1,69 @@
+#!/bin/sh
+#SBATCH --account=<group_name>
+#SBATCH --qos=<group_nqos>
+#SBATCH --job-name=NGS-BSA
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=<email@addr.ess>
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=48g
+#SBATCH --time=20:00:00
+#SBATCH --output=NGSBSA%j.log
+
+pwd; hostname; date
+
+workhome=`pwd`
+
+# Name of gene for use as prefix
+gene="bs8"
+
+# Species name, format: Genus_species, no spaces
+species="Capsicum_annuum"
+
+# Resistance type Supposted: r-recessive, d-dominant
+rtype="r"
+
+# Bulk codes (The relevant fastq should start with these characters)
+bulk_res="r"
+bulk_sus="s"
+
+# Lane codes, use "" if single lane
+lane1=""
+lane2=""
+
+# References folder
+refdir="references"
+
+# snpEff reference variety name
+refline="CM334"
+
+# Output folder name
+output="output_"$bulk_res"_"$bulk_sus
+
+# Reference genome fasta link
+refdl="ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/plant/Capsicum_annuum/latest_assembly_versions/GCA_000512255.2_ASM51225v2/GCA_000512255.2_ASM51225v2_genomic.fna.gz"
+
+# Annotation file link for referecne genome
+annotdl="ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/plant/Capsicum_annuum/latest_assembly_versions/GCA_000512255.2_ASM51225v2/GCA_000512255.2_ASM51225v2_genomic.gff.gz"
+
+# snpEff folder path
+snpEffdir="snpEff"
+
+# Known SNPs vcf link, use "" if not available
+snp=""
+
+# Ratio cut-off threshold for loess fitting
+thres=0.3
+
+# Smoothing span for Manhattan plot
+span=0.2
+
+# Run number, so as to not replace original R output files
+run=1
+
+# Script folder path
+path="."
+
+# Run script
+bash $path/NGS-BSA.sh -g "$gene" -s "$species" -o "$output" -t "$rtype" -b "$bulk_res" -b "$bulk_sus" -r "$refdir" -v "$refline" -f "$refdl" -a "$annotdl" -e "$snpEffdir" -k "$snp" -c "$thres" -w "$span" -i "$run" -p "$path" -n
