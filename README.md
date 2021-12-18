@@ -35,9 +35,9 @@ where:
         -n        Remove gene label in plots (numeric, default=NULL)  
         -p        Path to script folder  
   ```
-  
-### Example:  
-          See the example batch file.
-          
-### Citation:  
-          Under review. To be listed soon.
+
+### Example:
+        See the example batch file.
+
+### Citation:
+        Under review. To be listed soon.  
