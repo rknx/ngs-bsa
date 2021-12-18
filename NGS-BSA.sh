@@ -441,7 +441,7 @@ module load R
 
 awk -v thr=$thres 'BEGIN{OFS="\t"} {if (NR==1 || $11 >= thr || -$11 >= thr ) print $1, $2, $7, $10, $11}' $output/$gene.ratio.txt > $output/$gene.ratio.tmp
 
-Rscript $path/BSA-plot.R "$output" "$gene" "$thres" "$span" "$iteration" "$label"
+Rscript $path/NGS-BSA-plot.R "$output" "$gene" "$thres" "$span" "$iteration" "$label"
 
 module purge
 
