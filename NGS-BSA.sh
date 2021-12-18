@@ -69,12 +69,6 @@ p) path="$OPTARG";;
 esac
 done
 
-if [ -z "$gene" ] || [ -z "$species" ] || [ -z "$rtype" ] || [ -z "$bulks" ] || [ -z "$refline" ]
-then
-   echo -e '\nSome or all of the required parameters are empty.';
-   params && exit 1
-fi
-
 if [ "$skip" = "help" ]
 then
    echo -e '\nThis script overwrites files when rerun. This can be manually manipulated.'
@@ -104,6 +98,12 @@ then
    echo -e '\t\tc\t Setup known snps.'  
    echo -e '\t\td\t Setup custom annotation database.'
    exit 1
+fi
+
+if [ -z "$gene" ] || [ -z "$species" ] || [ -z "$rtype" ] || [ -z "$bulks" ] || [ -z "$refline" ]
+then
+   echo -e '\nSome or all of the required parameters are empty.';
+   params && exit 1
 fi
 
 ########## Wrapper function for calling individual sub-analysis functions ##########
